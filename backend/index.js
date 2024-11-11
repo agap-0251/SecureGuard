@@ -17,7 +17,7 @@ const adminRoute = require('./routes/admin.route');
 const vaultRoute = require('./routes/vault.route')
 
 app.use(cors({
-    origin: ['https://secure-guard-smoky.vercel.app/','https://secure-guard-anudeeps-projects-3d2b22db.vercel.app/','https://secure-guard-git-main-anudeeps-projects-3d2b22db.vercel.app/'],
+    origin: ['http://localhost:5173/','https://secure-guard-smoky.vercel.app/','https://secure-guard-anudeeps-projects-3d2b22db.vercel.app/','https://secure-guard-git-main-anudeeps-projects-3d2b22db.vercel.app/'],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials : true
 }))
