@@ -2,7 +2,9 @@ const mongoose = require('mongoose')
 
 const connectDB = async()=>{
     try{
-    mongoose.connect(process.env.MONGO_URI)
+    mongoose.connect(process.env.MONGO_URI,{
+        dbName : 'SecureGuard'
+    })
         console.log('MongoDB Connected')
     
 }catch(err){
