@@ -39,13 +39,6 @@ app.use(cors({
 // Handle preflight requests for all routes
 app.options('*', cors());
 
-
-
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");  // Adjust to only allow specific origins in production
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
 app.use(express.json());
 
 app.get('/', (req, res) => {
