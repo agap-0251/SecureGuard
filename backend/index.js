@@ -25,6 +25,12 @@ const allowedOrigins = [
 
 app.use(cors({
     origin: function (origin, callback) {
+        const allowedOrigins = [
+            'http://localhost:5173',
+            'https://secure-guard-smoky.vercel.app',
+            'https://secure-guard-anudeeps-projects-3d2b22db.vercel.app',
+            'https://secure-guard-git-main-anudeeps-projects-3d2b22db.vercel.app'
+        ];
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
@@ -32,7 +38,7 @@ app.use(cors({
         }
     },
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept"],
+    allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "x-auth-token"],
     credentials: true
 }));
 
