@@ -25,25 +25,20 @@ const allowedOrigins = [
 
 app.use(cors({
     origin: function (origin, callback) {
-        const allowedOrigins = [
-            'http://localhost:5173',
-            'https://secure-guard-smoky.vercel.app',
-            'https://secure-guard-anudeeps-projects-3d2b22db.vercel.app',
-            'https://secure-guard-git-main-anudeeps-projects-3d2b22db.vercel.app'
-        ];
         if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
+            callback(null, origin); // Set `origin` as the allowed origin if in the list
         } else {
             callback(new Error('Not allowed by CORS'));
         }
     },
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept", "x-auth-token"],
-    credentials: true
+    credentials: true  // Allows cookies and other credentials to be sent
 }));
 
-// Allow preflight requests across all routes
+// Handle preflight requests for all routes
 app.options('*', cors());
+
 
 
 app.use((req, res, next) => {
