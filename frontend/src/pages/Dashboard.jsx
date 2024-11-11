@@ -258,7 +258,7 @@ const Dashboard = () => {
 
     // console.log(data,formData)
 
-    const res = await fetch(`https://localhost:4321/api/media`, {
+    const res = await fetch(`https://secureguard-production.up.railway.app/api/media`, {
       method: "POST",
       headers: {
         "x-auth-token": user,
